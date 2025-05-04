@@ -29,6 +29,20 @@
 
 ---
 
+## **Struktur Database**
+
+Berikut adalah struktur tabel yang digunakan dalam aplikasi **ThesisTrack**:
+
+| **Tabel**               | **Kolom**                                             | **Deskripsi**                                                                                                                                      |
+|-------------------------|------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------|
+| **users**               | id, name, email, password, role, created_at, updated_at | Menyimpan data pengguna (admin, dosen, mahasiswa).                                                                                              |
+| **dosen**               | id, user_id, keahlian, created_at, updated_at         | Menyimpan data dosen, termasuk keahlian. Relasi ke tabel `users` melalui `user_id`.                                                              |
+| **mahasiswa**           | id, user_id, nim, jurusan, created_at, updated_at      | Menyimpan data mahasiswa, termasuk NIM dan jurusan. Relasi ke tabel `users` melalui `user_id`.                                                    |
+| **judul_skripsi**       | id, mahasiswa_id, judul, deskripsi, status, created_at, updated_at | Menyimpan pengajuan judul skripsi mahasiswa, status persetujuan judul, dan deskripsi skripsi. Relasi ke tabel `mahasiswa` melalui `mahasiswa_id`. |
+| **bimbingan**           | id, dosen_id, judul_skripsi_id, komentar, created_at, updated_at | Menyimpan riwayat bimbingan dosen terhadap judul skripsi mahasiswa, termasuk komentar dari dosen. Relasi ke tabel `dosen` dan `judul_skripsi`.     |
+
+---
+
 ## **Instalasi**
 
 1. **Clone repository:**
