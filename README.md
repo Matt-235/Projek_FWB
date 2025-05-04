@@ -31,19 +31,65 @@
 
 ## **Struktur Database**
 
-Berikut adalah struktur tabel yang digunakan dalam aplikasi **ThesisTrack**:
+### **Tabel 1: users**
+| **Nama Field**  | **Tipe Data** | **Keterangan**                                                  |
+|-----------------|---------------|-----------------------------------------------------------------|
+| id              | bigint        | Primary key, ID pengguna                                        |
+| name            | string        | Nama lengkap pengguna                                           |
+| email           | string        | Email pengguna (unique)                                         |
+| password        | string        | Password yang dienkripsi                                         |
+| role            | enum          | Role pengguna (admin, dosen, mahasiswa)                         |
+| created_at      | timestamp     | Waktu pembuatan akun                                            |
+| updated_at      | timestamp     | Waktu pembaruan akun                                            |
 
-| **Tabel**               | **Kolom**                                             | **Deskripsi**                                                                                                                                      |
-|-------------------------|------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------|
-| **users**               | id, name, email, password, role, created_at, updated_at | Menyimpan data pengguna (admin, dosen, mahasiswa).                                                                                              |
-| **dosen**               | id, user_id, keahlian, created_at, updated_at         | Menyimpan data dosen, termasuk keahlian. Relasi ke tabel `users` melalui `user_id`.                                                              |
-| **mahasiswa**           | id, user_id, nim, jurusan, created_at, updated_at      | Menyimpan data mahasiswa, termasuk NIM dan jurusan. Relasi ke tabel `users` melalui `user_id`.                                                    |
-| **judul_skripsi**       | id, mahasiswa_id, judul, deskripsi, status, created_at, updated_at | Menyimpan pengajuan judul skripsi mahasiswa, status persetujuan judul, dan deskripsi skripsi. Relasi ke tabel `mahasiswa` melalui `mahasiswa_id`. |
-| **bimbingan**           | id, dosen_id, judul_skripsi_id, komentar, created_at, updated_at | Menyimpan riwayat bimbingan dosen terhadap judul skripsi mahasiswa, termasuk komentar dari dosen. Relasi ke tabel `dosen` dan `judul_skripsi`.     |
+### **Tabel 2: dosen**
+| **Nama Field**  | **Tipe Data** | **Keterangan**                                                  |
+|-----------------|---------------|-----------------------------------------------------------------|
+| id              | bigint        | Primary key, ID dosen                                           |
+| user_id         | bigint        | Foreign key, ID pengguna dari tabel `users`                     |
+| keahlian        | string        | Keahlian dosen (misalnya: Sistem Informasi, Jaringan Komputer) |
+| created_at      | timestamp     | Waktu pembuatan data dosen                                      |
+| updated_at      | timestamp     | Waktu pembaruan data dosen                                      |
+
+### **Tabel 3: mahasiswa**
+| **Nama Field**  | **Tipe Data** | **Keterangan**                                                  |
+|-----------------|---------------|-----------------------------------------------------------------|
+| id              | bigint        | Primary key, ID mahasiswa                                       |
+| user_id         | bigint        | Foreign key, ID pengguna dari tabel `users`                     |
+| nim             | string        | Nomor Induk Mahasiswa (unik)                                    |
+| jurusan         | string        | Jurusan mahasiswa                                               |
+| created_at      | timestamp     | Waktu pembuatan data mahasiswa                                  |
+| updated_at      | timestamp     | Waktu pembaruan data mahasiswa                                  |
+
+### **Tabel 4: judul_skripsi**
+| **Nama Field**  | **Tipe Data** | **Keterangan**                                                  |
+|-----------------|---------------|-----------------------------------------------------------------|
+| id              | bigint        | Primary key, ID judul skripsi                                   |
+| mahasiswa_id    | bigint        | Foreign key, ID mahasiswa dari tabel `mahasiswa`                 |
+| judul           | string        | Judul skripsi yang diajukan oleh mahasiswa                       |
+| deskripsi       | text          | Deskripsi singkat tentang skripsi                               |
+| status          | enum          | Status pengajuan judul (pending, diterima, ditolak)             |
+| created_at      | timestamp     | Waktu pembuatan pengajuan judul skripsi                         |
+| updated_at      | timestamp     | Waktu pembaruan status atau deskripsi judul skripsi              |
+
+### **Tabel 5: bimbingan**
+| **Nama Field**  | **Tipe Data** | **Keterangan**                                                  |
+|-----------------|---------------|-----------------------------------------------------------------|
+| id              | bigint        | Primary key, ID bimbingan                                       |
+| dosen_id        | bigint        | Foreign key, ID dosen dari tabel `dosen`                         |
+| judul_skripsi_id| bigint        | Foreign key, ID judul skripsi dari tabel `judul_skripsi`         |
+| komentar        | text          | Komentar atau umpan balik dari dosen                            |
+| created_at      | timestamp     | Waktu pembuatan bimbingan                                       |
+| updated_at      | timestamp     | Waktu pembaruan bimbingan                                       |
 
 ---
 
-## **Instalasi**
+## **Relasi antar Tabel**
 
-1. **Clone repository:**
+- **users** ↔ **dosen**: **One-to-One** (Setiap dosen terkait dengan satu pengguna di tabel `users`).
+- **users** ↔ **mahasiswa**: **One-to-One** (Setiap mahasiswa terkait dengan satu pengguna di tabel `users`).
+- **judul_skripsi** ↔ **mahasiswa**: **Many-to-One** (Setiap mahasiswa bisa mengajukan banyak judul skripsi, tapi setiap judul hanya untuk satu mahasiswa).
+- **bimbingan** ↔ **dosen**: **Many-to-One** (Setiap bimbingan memiliki satu dosen, tapi satu dosen bisa membimbing banyak mahasiswa).
+- **bimbingan** ↔ **judul_skripsi**: **Many-to-One** (Setiap bimbingan terkait dengan satu judul skripsi, namun satu judul skripsi bisa memiliki banyak bimbingan).
 
+---
