@@ -1,66 +1,36 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+ThesisTrack
+ThesisTrack adalah aplikasi manajemen progres skripsi yang dirancang untuk membantu admin, dosen pembimbing, dan mahasiswa dalam mengelola proses bimbingan skripsi. Aplikasi ini memungkinkan mahasiswa untuk mengajukan judul skripsi, mengunggah dokumen, serta berinteraksi dengan dosen pembimbing. Dosen pembimbing dapat memberikan umpan balik dan memantau perkembangan skripsi mahasiswa, sementara admin dapat mengelola pengguna dan sistem secara keseluruhan.
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Roles dan Fitur-fitur
+1. Admin
+Fitur-fitur:
 
-## About Laravel
+Manajemen Pengguna: Admin dapat menambah, mengedit, atau menghapus akun pengguna (mahasiswa, dosen pembimbing, dan admin lainnya).
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Manajemen Judul Skripsi: Admin dapat menyetujui atau menolak pengajuan judul skripsi mahasiswa.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Melihat Laporan: Admin dapat melihat laporan terkait perkembangan skripsi mahasiswa secara keseluruhan.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Pengaturan Sistem: Admin dapat mengatur sistem, termasuk peran pengguna dan pengaturan aplikasi.
 
-## Learning Laravel
+2. Dosen Pembimbing
+Fitur-fitur:
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Menyetujui atau Menolak Judul Skripsi: Dosen pembimbing dapat meninjau dan memutuskan apakah judul skripsi yang diajukan oleh mahasiswa diterima atau perlu revisi.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+Pemantauan Progres Skripsi: Dosen pembimbing dapat memantau kemajuan skripsi mahasiswa yang dibimbing, termasuk melihat upload dokumen yang relevan.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Feedback: Dosen pembimbing dapat memberikan umpan balik kepada mahasiswa terkait dengan dokumen atau progres yang telah diunggah.
 
-## Laravel Sponsors
+Pengunggahan Bimbingan: Dosen pembimbing dapat mengunggah bahan bimbingan atau referensi untuk mahasiswa.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+3. Mahasiswa
+Fitur-fitur:
 
-### Premium Partners
+Pengajuan Judul Skripsi: Mahasiswa dapat mengajukan judul skripsi untuk mendapatkan persetujuan dari dosen pembimbing.
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+Upload Dokumen Skripsi: Mahasiswa dapat mengunggah dokumen skripsi mereka untuk diperiksa oleh dosen pembimbing.
 
-## Contributing
+Melihat Status Progres: Mahasiswa dapat melihat status perkembangan judul skripsi mereka, apakah sudah disetujui, dalam proses revisi, atau ditolak.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Mendapatkan Umpan Balik: Mahasiswa dapat menerima umpan balik atau catatan dari dosen pembimbing mengenai skripsi mereka.
