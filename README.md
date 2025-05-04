@@ -1,4 +1,3 @@
-ThesisTrack
 ThesisTrack adalah aplikasi manajemen progres skripsi yang dirancang untuk membantu admin, dosen pembimbing, dan mahasiswa dalam mengelola proses bimbingan skripsi. Aplikasi ini memungkinkan mahasiswa untuk mengajukan judul skripsi, mengunggah dokumen, serta berinteraksi dengan dosen pembimbing. Dosen pembimbing dapat memberikan umpan balik dan memantau perkembangan skripsi mahasiswa, sementara admin dapat mengelola pengguna dan sistem secara keseluruhan.
 
 Roles dan Fitur-fitur
