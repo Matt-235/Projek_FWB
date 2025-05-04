@@ -91,5 +91,3 @@
 - **judul_skripsi** ↔ **mahasiswa**: **Many-to-One** (Setiap mahasiswa bisa mengajukan banyak judul skripsi, tapi setiap judul hanya untuk satu mahasiswa).
 - **bimbingan** ↔ **dosen**: **Many-to-One** (Setiap bimbingan memiliki satu dosen, tapi satu dosen bisa membimbing banyak mahasiswa).
 - **bimbingan** ↔ **judul_skripsi**: **Many-to-One** (Setiap bimbingan terkait dengan satu judul skripsi, namun satu judul skripsi bisa memiliki banyak bimbingan).
-
----
